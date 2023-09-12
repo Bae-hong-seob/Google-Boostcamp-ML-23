@@ -62,3 +62,38 @@ def schedule_lr_decay(learning_rate0, epoch_num, decay_rate, time_interval=1000)
     learning_rate = (1 / (1+decay_rate*int(epoch_num / time_interval))) * learning_rate0 
     return learning_rate
 ~~~
+
+# 5. Tensorflow_introduction.ipynb
+- we can experience about tensorflow
+- Note that : loss function inputs are expected to be of shape (number of examples, num_classes)
+- Thus, if your dataset shape is (num_class, number of examples), you need to use tf.transpose(input)
+- Second, convenient function tf.GradientTape()
+~~~
+# Do the training loop
+for epoch in range(num_epochs):
+
+    epoch_total_loss = 0.
+    
+    #We need to reset object to start measuring from 0 the accuracy each epoch
+    train_accuracy.reset_states()
+    
+    for (minibatch_X, minibatch_Y) in minibatches:
+        
+        with tf.GradientTape() as tape: # 테이프처럼 cache(기록)
+            # 1. predict
+            Z3 = forward_propagation(tf.transpose(minibatch_X), parameters)
+
+            # 2. loss
+            minibatch_total_loss = compute_total_loss(Z3, tf.transpose(minibatch_Y))
+
+        # We accumulate the accuracy of all the batches
+        train_accuracy.update_state(minibatch_Y, tf.transpose(Z3))
+        
+        trainable_variables = [W1, b1, W2, b2, W3, b3]
+        grads = tape.gradient(minibatch_total_loss, trainable_variables) # (테이프를 풀면서 gradient를 계산)
+        optimizer.apply_gradients(zip(grads, trainable_variables)) # parameter를 optimizer에 맞게 update
+        epoch_total_loss += minibatch_total_loss
+    
+    # We divide the epoch total loss over the number of samples
+    epoch_total_loss /= m
+~~~
