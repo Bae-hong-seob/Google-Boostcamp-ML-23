@@ -8,7 +8,7 @@ padding, pooling
 - forward , bacward propagation
 - calculate gradient : sum all of W(m,i,j,c)
 
-# 5. Transfer_learning_with_MobileNet_v1.ipynb
+# 4. Transfer_learning_with_MobileNet_v1.ipynb
 pretrained model을 불러올 때 include_top=False
 - 가장 마지막 layer를 떼고 불러옴, 그리고 모델 output으로부터 직접 softmax 혹은 sigmoid. task에 맞는 마지막 layer를 설정
 - fine-tuning시, 데이터 양에 따라 적절한 layer수만큼 layer.trainable = True로 설정
