@@ -54,6 +54,7 @@ b = 0.0
 
 <img width="1003" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/assets/49437396/52ac2f89-d124-4ced-af3d-8c4a1f51917c">
 
+**loss function : Logistic Regression**
 ~~~
 # forward propagation
 Y_hat = sigmoid(np.dot(w.T, x) + b) 
@@ -63,4 +64,22 @@ cost = -1/m * np.sum(Y*np.log(Y_hat) + (1-Y)*np.log((1-Y_hat)))
 dw = 1/m * np.dot(X, (Y_hat-Y).T)
 db = 1/m * np.sum(Y_hat-Y)
 ~~~
-**loss function : Logistic Regression**
+
+## 4. optimize loss (=train)
+~~~
+for _ in range(iterations):
+    gradient, loss = propagate(w,b,X,Y)
+    dw = grads['dw']
+    db = grads['db']
+
+    w = w - learning_rate * dw # update
+    b = b - learning_rate * db # update
+~~~
+
+## 5. what is the best learning rate?
+<img width="466" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/assets/49437396/64682bbd-ccbe-442f-9413-96fc7fe1f746">
+
+- too large : the cost may up and down
+- too small : cause overfitting
+
+Then, what is the best learning rate? we talk about that later..
