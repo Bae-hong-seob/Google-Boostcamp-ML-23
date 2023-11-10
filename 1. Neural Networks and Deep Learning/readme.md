@@ -17,6 +17,7 @@ x = np.divide(x,x_norm) # boradcasting으로 각 row별로 x_norm 곱하기.
 
 ## 3. softmax
 <img width="969" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/assets/49437396/8822ccc7-411d-4be2-9095-3927ef64fb29">
+
 ~~~
 softmax = np.divide(np.exp(x), np.sum(np.exp(x), axis=1, keepdims=True))
 ~~~
