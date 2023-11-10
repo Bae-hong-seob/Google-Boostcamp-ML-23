@@ -33,3 +33,34 @@ softmax = np.divide(np.exp(x), np.sum(np.exp(x), axis=1, keepdims=True))
 L1 = sum(np.abs(y_hat - y))
 L2 = sum((y_hat - y)**2)
 ~~~
+
+# Logistic_Regression_with_a_Neural_Network_mindset
+
+## 1. understanding about vector dimension
+- train x,y shape : (m : number of train sets, height, width, channels) , (1,m)
+- test x shape (n : number of test sets, height, width, channels) , (1,n)
+
+## 2. image flatten using numpy reshape
+- train_flatten = train.reshape(heights x width x chaneels, m)
+- test_flatten = test.reshape(height x width x channels, n)
+**the point is using numpy reshape for purpose**
+
+## 3. build learning process
+~~~
+# initalize parameter with 0
+w = np.zeros((dim,1))
+b = 0.0
+~~~
+
+<img width="1003" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/assets/49437396/52ac2f89-d124-4ced-af3d-8c4a1f51917c">
+
+~~~
+# forward propagation
+Y_hat = sigmoid(np.dot(w.T, x) + b) 
+cost = -1/m * np.sum(Y*np.log(Y_hat) + (1-Y)*np.log((1-Y_hat)))
+
+# backward propagation
+dw = 1/m * np.dot(X, (Y_hat-Y).T)
+db = 1/m * np.sum(Y_hat-Y)
+~~~
+**loss function : Logistic Regression**
