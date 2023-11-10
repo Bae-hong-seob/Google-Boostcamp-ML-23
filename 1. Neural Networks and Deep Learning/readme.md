@@ -2,6 +2,7 @@
 
 ## 1. we learn about sigmoid function using numpy
 <img width="1011" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/assets/49437396/4c4cfef6-d721-4b03-81ea-8fee94d7d235">
+
 ~~~
 sigmoid = 1 / (1+np.exp(-x))
 gradient = sigmoid * (1-sigmoid)
