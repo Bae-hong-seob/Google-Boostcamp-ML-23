@@ -1,7 +1,7 @@
 # Python_Basics_with_Numpy
 
 ## 1. we learn about sigmoid function using numpy
-<img width="1011" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/assets/49437396/4c4cfef6-d721-4b03-81ea-8fee94d7d235">
+<img width="1011" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/blob/main/1.%20Neural%20Networks%20and%20Deep%20Learning/figs/1-fig1.png">
 
 ~~~
 sigmoid = 1 / (1+np.exp(-x))
@@ -16,7 +16,7 @@ x = np.divide(x,x_norm) # boradcasting으로 각 row별로 x_norm 곱하기.
 ~~~
 
 ## 3. softmax
-<img width="969" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/assets/49437396/8822ccc7-411d-4be2-9095-3927ef64fb29">
+<img width="969" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/blob/main/1.%20Neural%20Networks%20and%20Deep%20Learning/figs/1-fig2.png">
 
 ~~~
 softmax = np.divide(np.exp(x), np.sum(np.exp(x), axis=1, keepdims=True))
@@ -52,7 +52,7 @@ w = np.zeros((dim,1))
 b = 0.0
 ~~~
 
-<img width="1003" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/assets/49437396/52ac2f89-d124-4ced-af3d-8c4a1f51917c">
+<img width="1003" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/blob/main/1.%20Neural%20Networks%20and%20Deep%20Learning/figs/2-fig1.png">
 
 **loss function : Logistic Regression**
 ~~~
@@ -77,7 +77,7 @@ for _ in range(iterations):
 ~~~
 
 ## 5. what is the best learning rate?
-<img width="466" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/assets/49437396/64682bbd-ccbe-442f-9413-96fc7fe1f746">
+<img width="466" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/blob/main/1.%20Neural%20Networks%20and%20Deep%20Learning/figs/2-fig2.png">
 
 - too large : the cost may up and down
 - too small : cause overfitting
