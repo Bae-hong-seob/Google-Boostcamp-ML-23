@@ -306,4 +306,4 @@ As a result, 2 layer model accuracy is 72% and L layer model accuracy is 80% on 
 - Next, we can be able to obtain even higher accuracy bu systematically searching for better hyperparameters(e.g. learning rate, layers dims, number of iterations)
 
 Good work! I hope you have a nice day.
-읽어주셔서 감사합니다!
+읽어주셔서 감사합니다. 좋은 하루 되세요!
