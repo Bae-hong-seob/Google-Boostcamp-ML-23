@@ -88,7 +88,7 @@ Then, what is the best learning rate? we talk about that later..
 
 Planar_dataset:
 
-<img width="100" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/blob/main/1.%20Neural%20Networks%20and%20Deep%20Learning/figs/3-fig1.png">
+<p align="center"><img width="300" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/blob/main/1.%20Neural%20Networks%20and%20Deep%20Learning/figs/3-fig1.png"></p>
 
 ## 1. parameter initalize
 - random initialize is better than zeros. (proven probabilistically in many case)
@@ -109,7 +109,8 @@ A2 = sigmoid(Z2)
 
 ## 3. comput the cost (=total loss)
 - in this case, we use cross entropy loss
-<img width="100" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/blob/main/1.%20Neural%20Networks%20and%20Deep%20Learning/figs/3-fig2.png">
+<p align="center"><img width="300" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/blob/main/1.%20Neural%20Networks%20and%20Deep%20Learning/figs/3-fig3.png"></p>
+
 ~~~
 '''
 Arguments:
