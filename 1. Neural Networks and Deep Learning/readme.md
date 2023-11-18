@@ -83,3 +83,7 @@ for _ in range(iterations):
 - too small : cause overfitting
 
 Then, what is the best learning rate? we talk about that later..
+
+# Planar_data_classification_with_one_hidden_layer
+
+<img width="1003" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/blob/main/1.%20Neural%20Networks%20and%20Deep%20Learning/figs/3-fig1.png">
