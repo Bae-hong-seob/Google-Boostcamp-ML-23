@@ -98,7 +98,7 @@ b1 = np.zeros((n_h,1))
 ~~~
 
 ## 2. forward propagation
-<img width="100" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/blob/main/1.%20Neural%20Networks%20and%20Deep%20Learning/figs/3-fig2.png">
+<p align="center"><img width="300" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/blob/main/1.%20Neural%20Networks%20and%20Deep%20Learning/figs/3-fig2.png"></p>
 - in this case, we use tanh and sigmoid
 ~~~
 Z1 = np.dot(W1, X) + b1
