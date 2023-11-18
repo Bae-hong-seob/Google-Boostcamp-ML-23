@@ -201,3 +201,91 @@ def L_model_forward(X, parameters):
 
     return AL, caches
 ~~~
+
+## 3. compute cost
+- In this case, we use cross-entropy loss function
+
+~~~
+def compute_cost(AL, Y):
+    m = Y.shape[1] # the number of examples(=training set)
+
+    cost = -1/m * np.sum((Y*np.log(AL)) + (1-Y)*np.log(1-AL))
+
+    cost = np.squeeze(cost) # To make sure your cost's shape is what we expect (e.g. this turns [[17]] into 17).
+    return cost
+~~~
+
+## 4. backward propagation
+linear(WX+b) backward
+
+<p align="center"><img width="500" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/blob/main/1.%20Neural%20Networks%20and%20Deep%20Learning/figs/4-fig1.png"></p>
+
+~~~
+dW = 1/m * np.dot(dZ,A_prev.T)
+db = 1/m * np.sum(dZ, axis=1, keepdims=True)
+dA_prev = np.dot(W.T, dZ)
+~~~
+
+activation backward
+- It's hard to calculate. so we use pre-defined helper function.
+- sigmoid_backward() and relu_backward()
+
+~~~
+def linear_activation_backward(dA, cache, activation):
+    linear_cache, activation_cache = cache
+    
+    if activation == "relu":
+        dZ = relu_backward(dA, activation_cache)
+        dA_prev, dW, db = linear_backward(dZ, linear_cache)
+        
+    elif activation == "sigmoid":
+        dZ = sigmoid_backward(dA, activation_cache)
+        dA_prev, dW, db = linear_backward(dZ, linear_cache)
+    
+    return dA_prev, dW, db
+~~~
+
+backward propagation
+
+~~~
+def L_model_backward(AL, Y, caches):
+    grads = {}
+    L = len(caches) # the number of layers
+    m = AL.shape[1]
+    Y = Y.reshape(AL.shape) # after this line, Y is the same shape as AL
+    
+    # Initializing the backpropagation
+    dAL = - (np.divide(Y, AL) - np.divide(1 - Y, 1 - AL)) # derivative of cost with respect to AL
+    
+    current_cache = caches[-1]
+    dA_prev_temp, dW_temp, db_temp = linear_activation_backward(dAL, current_cache, activation='sigmoid')
+    grads["dA" + str(L-1)] = dA_prev_temp
+    grads["dW" + str(L)] = dW_temp
+    grads["db" + str(L)] = db_temp
+    
+    # Loop from l=L-2 to l=0
+    for l in reversed(range(L-1)):
+        current_cache = caches[l]
+        dA_prev_temp, dW_temp, db_temp = linear_activation_backward(dA_prev_temp, current_cache, activation='relu')
+        grads["dA" + str(l)] = dA_prev_temp
+        grads["dW" + str(l + 1)] = dW_temp
+        grads["db" + str(l + 1)] = db_temp
+        
+    return grads
+~~~
+
+## 5. update parameters
+~~~
+# GRADED FUNCTION: update_parameters
+
+def update_parameters(params, grads, learning_rate):
+    parameters = copy.deepcopy(params)
+    L = len(parameters) // 2 # number of layers in the neural network
+
+    # Update rule for each parameter. Use a for loop.
+    for l in range(L):
+        parameters["W" + str(l+1)] -= learning_rate * grads['dW'+str(l+1)]
+        parameters["b" + str(l+1)] -= learning_rate * grads['db'+str(l+1)]
+        
+    return parameters
+~~~
