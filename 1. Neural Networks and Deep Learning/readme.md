@@ -88,7 +88,7 @@ Then, what is the best learning rate? we talk about that later..
 
 Planar_dataset:
 
-<p align="center"><img width="300" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/blob/main/1.%20Neural%20Networks%20and%20Deep%20Learning/figs/3-fig1.png"></p>
+<p align="center"><img width="400" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/blob/main/1.%20Neural%20Networks%20and%20Deep%20Learning/figs/3-fig1.png"></p>
 
 ## 1. parameter initalize
 - random initialize is better than zeros. (proven probabilistically in many case)
@@ -98,7 +98,7 @@ b1 = np.zeros((n_h,1))
 ~~~
 
 ## 2. forward propagation
-<p align="center"><img width="300" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/blob/main/1.%20Neural%20Networks%20and%20Deep%20Learning/figs/3-fig2.png"></p>
+<p align="center"><img width="200" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/blob/main/1.%20Neural%20Networks%20and%20Deep%20Learning/figs/3-fig2.png"></p>
 - in this case, we use tanh and sigmoid
 ~~~
 Z1 = np.dot(W1, X) + b1
