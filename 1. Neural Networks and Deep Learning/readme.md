@@ -289,3 +289,21 @@ def update_parameters(params, grads, learning_rate):
         
     return parameters
 ~~~
+
+# Deep Neural Network - Application
+- In 2. Logistic_Regression_with_a_Neural_Network_mindset.ipynb, we build 2 layers model
+- now, we build more deeper model and compare performance.
+
+Now, we make sure you familiar process of deep learning model.
+- first, initialize parameters
+- second, forward propagation
+- third, compute loss
+- fourth, backward propagation
+- fifth, update parameters
+
+As a result, 2 layer model accuracy is 72% and L layer model accuracy is 80% on the same test set
+- Thus we can feel the power of deep layer model.
+- Next, we can be able to obtain even higher accuracy bu systematically searching for better hyperparameters(e.g. learning rate, layers dims, number of iterations)
+
+Good work! I hope you have a nice day.
+읽어주셔서 감사합니다!
