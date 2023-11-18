@@ -144,3 +144,43 @@ b2 -= learning_rate * db2
 ~~~
 - if derivative is positive, we have to move left(=loss decrease direction) so W1 will be decrease
 - if derivative is negative, we have to move right(=loss decreses direction) so W1 will be decreas
+
+# Building_your_Deep_Neural_Network_Step_by_Step
+In this case, we generalize deep learning model about one-layer to n-layers
+- the model's structure is input -> layer(linear-ReLU) -> layer(linear-sigmoid) -> output
+
+## 1. initialize parameters deep
+~~~
+for l in range(1, L): # L = number of layers
+    parameters["W" + str(l)] = np.random.randn(layer_dims[l], layer_dims[l-1]) * 0.01
+    parameters["b" + str(l)] = np.zeros((layer_dims[l], 1))
+~~~
+
+## 2. forward propagation
+linear layer
+
+~~~
+def linear_forward(A, W, b):
+    Z = np.dot(W,A)+b
+    cache = (A,W,b)
+
+    return Z, cache
+~~~
+
+activation function
+
+~~~
+def linear_activation_forward(A_prev, W, b, activation):
+   
+    if activation == "sigmoid":
+        Z, linear_cache = linear_forward(A_prev, W, b)
+        A, activation_cache = sigmoid(Z)
+            
+    elif activation == "relu":
+        Z, linear_cache = linear_forward(A_prev, W, b)
+        A, activation_cache = relu(Z)
+        
+    cache = (linear_cache, activation_cache)
+
+    return A, cache
+~~~
