@@ -86,4 +86,37 @@ Then, what is the best learning rate? we talk about that later..
 
 # Planar_data_classification_with_one_hidden_layer
 
-<img width="1003" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/blob/main/1.%20Neural%20Networks%20and%20Deep%20Learning/figs/3-fig1.png">
+Planar_dataset:
+
+<img width="100" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/blob/main/1.%20Neural%20Networks%20and%20Deep%20Learning/figs/3-fig1.png">
+
+## 1. parameter initalize
+- random initialize is better than zeros. (proven probabilistically in many case)
+~~~
+W1 = np.random.randn(n_h,n_x)*0.01
+b1 = np.zeros((n_h,1))
+~~~
+
+## 2. forward propagation
+<img width="100" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/blob/main/1.%20Neural%20Networks%20and%20Deep%20Learning/figs/3-fig2.png">
+- in this case, we use tanh and sigmoid
+~~~
+Z1 = np.dot(W1, X) + b1
+A1 = np.tanh(Z1)
+Z2 = np.dot(W2, A1) + b2
+A2 = sigmoid(Z2)
+~~~
+
+## 3. comput the cost (=total loss)
+- in this case, we use cross entropy loss
+<img width="100" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/blob/main/1.%20Neural%20Networks%20and%20Deep%20Learning/figs/3-fig2.png">
+~~~
+'''
+Arguments:
+A2 -- The sigmoid output of the second activation, of shape (1, number of examples)
+Y -- "true" labels vector of shape (1, number of examples)
+'''
+
+logprobs = np.multiply(np.log(A2),Y) + np.multiply(np.log(1-A2),(1-Y))
+cost = -1/m * np.sum(logprobs)
+~~~
