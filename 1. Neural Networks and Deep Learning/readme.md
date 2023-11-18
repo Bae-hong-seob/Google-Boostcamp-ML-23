@@ -125,6 +125,7 @@ cost = -1/m * np.sum(logprobs)
 ## 4. backward propagation
 - hardest part(=most mathematical part) in deep learning.
 <p align="center"><img width="500" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/blob/main/1.%20Neural%20Networks%20and%20Deep%20Learning/figs/3-fig4.png"></p>
+
 ~~~
 dZ2 = A2 - Y
 dW2 = 1/m * np.dot(dZ2, A1.T)
