@@ -184,3 +184,20 @@ def linear_activation_forward(A_prev, W, b, activation):
 
     return A, cache
 ~~~
+
+forward propagation
+
+~~~
+def L_model_forward(X, parameters):
+    caches = [] # for backward propagation
+
+    for l in range(1, L):
+        A, cache = linear_activation_forward(A_prev, parameters['W'+str(l)], parameters['b'+str(l)], activation='relu')
+        caches.append(cache)
+
+    # last layer : sigmoid
+    AL, cache = linear_activation_forward(A, parameters['W'+str(L)], parameters['b'+str(L)], activation='sigmoid')
+    caches.append(cache)
+
+    return AL, caches
+~~~
