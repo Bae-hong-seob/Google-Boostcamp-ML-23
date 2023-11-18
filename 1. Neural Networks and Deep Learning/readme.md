@@ -218,7 +218,7 @@ def compute_cost(AL, Y):
 ## 4. backward propagation
 linear(WX+b) backward
 
-<p align="center"><img width="500" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/blob/main/1.%20Neural%20Networks%20and%20Deep%20Learning/figs/4-fig1.png"></p>
+<p align="center"><img width="300" alt="image" src="https://github.com/Bae-hong-seob/Google-Boostcamp-ML-23/blob/main/1.%20Neural%20Networks%20and%20Deep%20Learning/figs/4-fig1.png"></p>
 
 ~~~
 dW = 1/m * np.dot(dZ,A_prev.T)
